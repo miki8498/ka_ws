@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="end_effectors" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find robotiq_hand_e)/urdf/robotiq_wiring.urdf.xacro"/>
+    <xacro:include filename="$(find robotiq_hand_e)/urdf/robotiq_trasmission.xacro"/>
+
+
+    <xacro:macro name="robotiq_wiring_fingers" params="gripper_name parent rpy:='0 0 0' finger_tip_cor:='0 0 0' xyz:='0 0 0' hardware_interface='hardware_interface/PositionJointInterface'">
+        
+        <xacro:wiring_gripper prefix="${gripper_name}" parent="${parent}" rpy="${rpy}" finger_tip_cor="${finger_tip_cor}" xyz="${xyz}"/>
+        <xacro:robotiq_trasmission prefix="${gripper_name}" hw_interface="${hardware_interface}"/>
+
+    </xacro:macro>
+
+
+</robot>

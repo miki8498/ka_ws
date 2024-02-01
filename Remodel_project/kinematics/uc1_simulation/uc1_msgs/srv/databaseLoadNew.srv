@@ -1,0 +1,7 @@
+int8 mode
+# 1 : write and replace
+# 2 : Appen only
+# 3 : Erase and load 
+string path
+---
+bool success

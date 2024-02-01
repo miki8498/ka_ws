@@ -1,0 +1,11 @@
+string componentName
+float64 x_uc
+float64 x_lc
+float64 yc
+float64 component_height
+---
+bool success
+---
+float64 current_time
+string current_state
+

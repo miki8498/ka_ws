@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="right_gripper_active" default="true"/>
+  <arg name="left_gripper_active" default="true"/>
+  <arg name = "right_robot_name"   default = "ur_right_"/>
+  <arg name = "left_robot_name"   default = "ur_left_"/>
+  <arg name = "right_gripper_name"   default = "$(arg right_robot_name)"/>
+  <arg name = "left_gripper_name"   default = "$(arg left_robot_name)"/>
+
+
+
+  <!--rightarm's arguments-->
+  <arg name="leftarm_kinematics"               default="$(find dual_ur_robot)/config/robot_calibration_left.yaml"/>
+  <arg name="leftarm_controller_config_file"   default="$(find dual_ur_robot)/config/leftarm_controllers.yaml"/>
+  <arg name="leftarm_ip"                       default="192.168.0.102"/>
+  <arg name="leftarm_reverse_port"             default="50005"/>
+  <arg name="leftarm_script_sender_port"       default="50006"/>
+  <arg name="leftarm_trajectory_port"          default="50007"/>
+  <arg name="leftarm_script_command_port"      default="50008" />
+
+  <!--leftarm's arguments-->
+  <arg name="rightarm_kinematics"                default="$(find dual_ur_robot)/config/robot_calibration_right.yaml"/>
+  <arg name="rightarm_controller_config_file"    default="$(find dual_ur_robot)/config/rightarm_controllers.yaml"/>
+  <arg name="rightarm_ip"                        default="192.168.0.103"/>
+  <arg name="rightarm_reverse_port"              default="50001"/>
+  <arg name="rightarm_script_sender_port"        default="50002"/>
+  <arg name="rightarm_trajectory_port"           default="50003"/>
+  <arg name="rightarm_script_command_port"       default="50004" doc="Port that will be opened by the driver to allow forwarding script commands to the robot."/>
+
+
+  <!--common arguments-->
+  <arg name ="use_tool_communication"      default="false"/>
+  <arg name ="controllers"                 default="joint_state_controller joint_group_pos_controller" doc="Controllers that are activated by default."/>
+  <arg name ="stopped_controllers"         default="pos_joint_traj_controller joint_group_vel_controller" doc="Controllers that are initally loaded, but not started."/>  
+  <arg name = "robot1_x_pos" value="0.46"/>
+  <arg name = "robot1_y_pos" value="0"/>
+  <arg name = "robot1_z_pos" value="0"/>
+  <arg name = "robot1_roll"  value="0.0"/>
+  <arg name = "robot1_pitch" value="0.0"/>
+  <arg name = "robot1_yaw"   value="0"/>
+
+  <arg name = "robot2_x_pos" value="-0.46"/>
+  <arg name = "robot2_y_pos" value="0"/>
+  <arg name = "robot2_z_pos" value="0"/>
+  <arg name = "robot2_roll"  value="0.0"/>
+  <arg name = "robot2_pitch" value="0.0"/>
+  <arg name = "robot2_yaw"   value="0"/>
+
+  <arg name="x_finger_tip_right" default="0.157"/>
+  <arg name="y_finger_tip_right" default="0.0"/>
+  <arg name="z_finger_tip_right" default="0.0018"/>
+  <arg name="x_finger_tip_left"  default="0.157"/>
+  <arg name="y_finger_tip_left"  default="0.0"/>
+  <arg name="z_finger_tip_left"  default="0.0018"/>
+
+    <!--Loading of complete system model - (dual ur arms) -->
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find ur10_sim)/xacro/ur10_dual_arm.xacro
+                                          robot1_name:=$(arg right_robot_name)
+                                          robot2_name:=$(arg left_robot_name)
+                                          gripper1_name:=$(arg right_gripper_name)
+                                          gripper2_name:=$(arg left_gripper_name)
+                              
+
+                                          robot1_x_pos:=$(arg robot1_x_pos)
+                                          robot1_y_pos:=$(arg robot1_y_pos) 
+                                          robot1_z_pos:=$(arg robot1_z_pos)
+                                          robot1_roll:=$(arg robot1_roll) 
+                                          robot1_pitch:=$(arg robot1_pitch) 
+                                          robot1_yaw:=$(arg robot1_yaw)
+                                          x_finger_tip_left:=$(arg x_finger_tip_right) 
+                                          y_finger_tip_left:=$(arg y_finger_tip_right) 
+                                          z_finger_tip_left:=$(arg z_finger_tip_right)
+
+                                          robot2_x_pos:=$(arg robot2_x_pos)
+                                          robot2_y_pos:=$(arg robot2_y_pos) 
+                                          robot2_z_pos:=$(arg robot2_z_pos)
+                                          robot2_roll:=$(arg robot2_roll) 
+                                          robot2_pitch:=$(arg robot2_pitch) 
+                                          robot2_yaw:=$(arg robot2_yaw)
+                                          x_finger_tip_right:=$(arg x_finger_tip_left) 
+                                          y_finger_tip_right:=$(arg y_finger_tip_left) 
+                                          z_finger_tip_right:=$(arg z_finger_tip_left)
+
+
+
+                                            "/> 
+
+  <!--Activation right arm (ur5)-->
+
+  <group ns="ur_right">
+   
+    <include file="$(find ur_robot_driver)/launch/ur_control.launch">
+      <arg name="use_tool_communication"  value="$(arg use_tool_communication)"/>
+      <arg name="controller_config_file"  value="$(arg rightarm_controller_config_file)"/>
+      <arg name="robot_ip"                value="$(arg rightarm_ip)"/>
+      <arg name="reverse_port"            value="$(arg rightarm_reverse_port)"/>
+      <arg name="script_sender_port" value="$(arg rightarm_script_sender_port)"/>
+      <arg name="trajectory_port" value="$(arg rightarm_trajectory_port)"/>
+      <arg name="script_command_port" value="$(arg rightarm_script_command_port)" />
+      <arg name="kinematics_config" value="$(arg rightarm_kinematics)"/>
+      <arg name="tf_prefix" value="ur_right_"/>
+      <arg name="controllers" value="$(arg controllers)"/>
+      <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
+    </include>
+
+    <group if="$(arg right_gripper_active)">
+      <include file="$(find robotiq_control)/launch/robotiq_action_server.launch">
+        <arg name="gripper_ip" value="192.168.0.103"/>
+        <arg name="topic_name" value="/ur_right/robotiq_hand_e"/>
+      </include>
+    </group>
+
+  </group>
+
+  <!--Activation left arm (ur5e)-->
+
+  <group ns="ur_left">
+
+    <include file="$(find ur_robot_driver)/launch/ur_control.launch">
+      <arg name="use_tool_communication" value="$(arg use_tool_communication)"/>
+      <arg name="controller_config_file" value="$(arg leftarm_controller_config_file)"/>
+      <arg name="robot_ip" value="$(arg leftarm_ip)"/>
+      <arg name="reverse_port" value="$(arg leftarm_reverse_port)"/>
+      <arg name="script_sender_port" value="$(arg leftarm_script_sender_port)"/>
+      <arg name="trajectory_port" value="$(arg leftarm_trajectory_port)"/>
+      <arg name="script_command_port" value="$(arg leftarm_script_command_port)" />
+      <arg name="kinematics_config" value="$(arg leftarm_kinematics)"/>
+      <arg name="tf_prefix" value="ur_left_"/>
+      <arg name="controllers" value="$(arg controllers)"/>
+      
+      <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
+    </include>
+
+    <group if="$(arg left_gripper_active)">
+      <include file="$(find robotiq_control)/launch/robotiq_action_server.launch">
+        <arg name="gripper_ip" value="192.168.0.102"/>
+        <arg name="topic_name" value="/ur_left/robotiq_hand_e"/>
+      </include>
+    </group>
+
+  </group> 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <!-- Moveit and database activation -->
+  <include file="$(find moveit_conf)/launch/move_group.launch"/>
+
+
+  <!-- Convenience stuff for demo purposes-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ur10_sim)/rviz/rviz_config.rviz" required="true"/> 
+
+  
+  <node name="joint_state_publisher_total" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
+    <rosparam param="source_list">[ur_right/joint_states, ur_left/joint_states] </rosparam>
+
+  </node>
+
+</launch>

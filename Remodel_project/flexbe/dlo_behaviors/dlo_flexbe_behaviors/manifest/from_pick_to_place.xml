@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="From_pick_to_place">
+
+	<executable package_path="dlo_flexbe_behaviors.from_pick_to_place_sm" class="From_pick_to_placeSM" />
+	<tagstring>xxx</tagstring>
+	<author>mk</author>
+	<date>Tue Jan 30 2024</date>
+	<description>
+		fe
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="linear_interpolation" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="delta_z" default="0.03" label="delta_z" hint="Sets the delta_z">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+		<param type="numeric" name="period_over_pick" default="10" label="period_over_pick" hint="Sets the period_over_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="period_to_place" default="10" label="period_to_place" hint="Sets the period_to_place">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+	</params>
+
+
+</behavior>

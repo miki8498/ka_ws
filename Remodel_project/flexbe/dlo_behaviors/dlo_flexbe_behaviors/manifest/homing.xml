@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Homing">
+
+	<executable package_path="dlo_flexbe_behaviors.homing_sm" class="HomingSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Thu Jan 25 2024</date>
+	<description>
+		go to homing pose double robot
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Homing_single_arm" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="boolean" name="gripper_config" default="False" label="gripper_config" hint="Sets the gripper_config" />
+
+		<param type="boolean" name="simulation" default="False" label="simulation" hint="Sets the simulation" />
+
+	</params>
+
+
+</behavior>

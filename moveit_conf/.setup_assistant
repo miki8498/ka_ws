@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ur10_sim
+    relative_path: xacro/ur10_dual_arm.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/dual.srdf
+  CONFIG:
+    author_name: mk
+    author_email: michela.cavuoto2@unibo.it
+    generated_timestamp: 1706613412

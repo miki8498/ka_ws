@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Homing_single_arm">
+
+	<executable package_path="dlo_flexbe_behaviors.homing_single_arm_sm" class="Homing_single_armSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Thu Jan 25 2024</date>
+	<description>
+		go to homing pose
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="linear_interpolation" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period" default="10" label="period" hint="Sets the period">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+	</params>
+
+
+</behavior>

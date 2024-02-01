@@ -1,0 +1,18 @@
+<launch>
+
+        <arg name="gripper_ip" default="192.168.0.103"/>
+        <arg name="topic_name" default="ur_left/robotiq_hand_e"/>
+
+        <!-- <arg name="gripper_ip_right" default="192.168.0.102"/> -->
+
+                    
+	        
+    <!-- Robotiq 2finger_gripper action Server -->
+    
+    <node pkg="robotiq_control" type="GripperActSrvTcp_Ip.py" name="robotiq_2f85_action_server" respawn="false" output="screen">
+        <param name="gripper_ip" value="$(arg gripper_ip)"/>
+        <param name="topic_name" value="$(arg topic_name)"/>
+        <!-- <param name="gripper_ip_right" value="$(arg gripper_ip_right)"/> -->
+    </node>
+ 
+</launch>

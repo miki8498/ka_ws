@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Move_two_arm_sync">
+
+	<executable package_path="ur_move_flexbe_behaviors.move_two_arm_sync_sm" class="Move_two_arm_syncSM" />
+	<tagstring>xxx</tagstring>
+	<author>mk</author>
+	<date>Tue Jan 30 2024</date>
+	<description>
+		rrg
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Pick " />
+	<contains name="Move" />
+	<contains name="Release" />
+	<contains name="From_pick_to_place" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="z_over_pick" default="0.01" label="z_over_pick" hint="Sets the z_over_pick">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+		<param type="numeric" name="period_pose_high" default="10" label="period_pose_high" hint="Sets the period_pose_high">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="period_to_pick" default="10" label="period_to_pick" hint="Sets the period_to_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="z_to_move" default="0.01" label="z_to_move" hint="Sets the z_to_move">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period_move_after_pick" default="10" label="period_move_after_pick" hint="Sets the period_move_after_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="period_to_place" default="10" label="period_to_place" hint="Sets the period_to_place">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="boolean" name="gripper_open" default="False" label="gripper_open" hint="Sets the gripper_open" />
+
+		<param type="boolean" name="gripper_close" default="False" label="gripper_close" hint="Sets the gripper_close" />
+
+		<param type="boolean" name="simulation" default="False" label="simulation" hint="Sets the simulation" />
+
+		<param type="numeric" name="z_over_place" default="0.01" label="z_over_place" hint="Sets the z_over_place">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period_over_place" default="10" label="period_over_place" hint="Sets the period_over_place">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+	</params>
+
+
+</behavior>

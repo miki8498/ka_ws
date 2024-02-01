@@ -1,0 +1,8 @@
+geometry_msgs/Pose left_target_pose
+geometry_msgs/Pose right_target_pose
+---
+geometry_msgs/Pose left_target_pose
+geometry_msgs/Pose right_target_pose
+bool result
+---
+float64 current_time

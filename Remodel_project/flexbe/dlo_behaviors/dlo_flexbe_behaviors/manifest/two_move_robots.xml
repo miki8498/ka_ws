@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="two_move_robots">
+
+	<executable package_path="dlo_flexbe_behaviors.two_move_robots_sm" class="two_move_robotsSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Wed Jan 31 2024</date>
+	<description>
+		dfe
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="period" default="1" label="period" hint="Sets the period">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+	</params>
+
+
+</behavior>

@@ -1,0 +1,7 @@
+
+geometry_msgs/Pose component_pose
+string component_type
+---
+geometry_msgs/Pose detected_pose
+---
+float64 current_time

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual">
+  
+  <xacro:arg name="robot1_name" default="ur_right_"/>
+  <xacro:arg name="robot2_name" default="ur_left_"/>
+  <xacro:arg name="gripper1_name" default="ur_right_"/>
+  <xacro:arg name="gripper2_name" default="ur_left_"/>
+
+  <xacro:arg name="connected_to" default=""/> <!-- If using a different frame with ${connected_to} param, make sure 'world' frame exists in the TF tree -->
+  
+  <xacro:arg name="robot1_x_pos" default="1.0"/>
+  <xacro:arg name="robot1_y_pos" default="0.0"/>
+  <xacro:arg name="robot1_z_pos" default="0.0"/>
+  <xacro:arg name="robot1_roll"  default="0.0"/>
+  <xacro:arg name="robot1_pitch" default="0.0"/>
+  <xacro:arg name="robot1_yaw"   default="0.0"/>
+
+  <xacro:arg name="robot2_x_pos" default="-1.0"/>
+  <xacro:arg name="robot2_y_pos" default="0.0"/>
+  <xacro:arg name="robot2_z_pos" default="0.0"/>
+  <xacro:arg name="robot2_roll"  default="0.0"/>
+  <xacro:arg name="robot2_pitch" default="0.0"/>
+  <xacro:arg name="robot2_yaw"   default="0.0"/>
+
+  <xacro:arg name="x_finger_tip_right" default="0.157"/>
+  <xacro:arg name="y_finger_tip_right" default="0"/>
+  <xacro:arg name="z_finger_tip_right" default="0.0018"/>
+  <xacro:arg name="x_finger_tip_left"  default="0.157"/>
+  <xacro:arg name="y_finger_tip_left"  default="0"/>
+  <xacro:arg name="z_finger_tip_left"  default="0.0018"/>
+  <xacro:arg name="trans_hw_iface" default="hardware_interface/PositionJointInterface" />
+
+  <!-- Include URDFs -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur5e_macro.xacro"/>
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur5e_macro.xacro"/>
+
+  <xacro:include filename="$(find robotiq_hand_e)/urdf/robotiq.xacro"/>
+  
+
+
+  <link name="world"/>
+
+  <!-- Define the world -->
+   
+  <joint name="world_robot1" type="fixed">
+    <parent link="world"/>
+    <child link="$(arg robot1_name)base_link"/>
+    <origin xyz="$(arg robot1_x_pos) $(arg robot1_y_pos) $(arg robot1_z_pos)" rpy="$(arg robot1_roll) $(arg robot1_pitch) $(arg robot1_yaw)"/>
+  </joint>
+
+  <joint name="world_robot2" type="fixed">
+    <parent link="world"/>
+    <child link="$(arg robot2_name)base_link"/>
+    <origin xyz=" $(arg robot2_x_pos) $(arg robot2_y_pos) $(arg robot2_z_pos)" rpy="$(arg robot2_roll) $(arg robot2_pitch) $(arg robot2_yaw)"/>
+  </joint>
+
+  <xacro:ur5e_robot prefix="$(arg robot1_name)" />
+  <xacro:ur5e_robot prefix="$(arg robot2_name)" />
+  <xacro:robotiq_wiring_fingers gripper_name="$(arg gripper1_name)"  parent="$(arg robot1_name)tool0" rpy="0 -1.57 3.14" finger_tip_cor="$(arg x_finger_tip_right) $(arg y_finger_tip_right) $(arg z_finger_tip_right)" xyz="0 0 0.0" hardware_interface="hardware_interface/PositionJointInterface" />
+  <xacro:robotiq_wiring_fingers gripper_name="$(arg gripper2_name)"  parent="$(arg robot2_name)tool0" rpy="0 -1.57 3.14" finger_tip_cor="$(arg x_finger_tip_left) $(arg y_finger_tip_left) $(arg z_finger_tip_left)" xyz="0 0 0.0" hardware_interface="hardware_interface/PositionJointInterface"/> 
+
+  
+    <!-- Load Gazebo lib and set the robot namespace -->      
+  <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+          <robotNamespace></robotNamespace>
+          <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+          <legacyModeNS>true</legacyModeNS>
+      </plugin>
+  </gazebo>
+        
+
+
+</robot>

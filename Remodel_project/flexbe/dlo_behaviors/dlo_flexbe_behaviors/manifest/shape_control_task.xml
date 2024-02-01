@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="shape_control_task">
+
+	<executable package_path="dlo_flexbe_behaviors.shape_control_task_sm" class="shape_control_taskSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Wed Jul 26 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="initialize_robot_frankx" />
+	<contains name="frankx_pick_place" />
+
+	<!-- Available Parameters -->
+
+</behavior>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Move">
+
+	<executable package_path="dlo_flexbe_behaviors.move_sm" class="MoveSM" />
+	<tagstring>xxx</tagstring>
+	<author>mk</author>
+	<date>Tue Jan 30 2024</date>
+	<description>
+		fe
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="boolean" name="gripper_config" default="False" label="gripper_config" hint="Sets the gripper_config" />
+
+		<param type="boolean" name="simulation" default="False" label="simulation" hint="Sets the simulation" />
+
+	</params>
+
+
+</behavior>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Pick and place 2 moving arm">
+
+	<executable package_path="dlo_flexbe_behaviors.pick_and_place_2_moving_arm_sm" class="Pickandplace2movingarmSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Wed Jul 26 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Homing" />
+	<contains name="two_move_robots" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+		<param type="boolean" name="open" default="True" label="open" hint="Sets the open" />
+
+		<param type="boolean" name="close" default="False" label="close" hint="Sets the close" />
+
+		<param type="boolean" name="simulation" default="True" label="simulation" hint="Sets the simulation" />
+
+	</params>
+
+
+</behavior>

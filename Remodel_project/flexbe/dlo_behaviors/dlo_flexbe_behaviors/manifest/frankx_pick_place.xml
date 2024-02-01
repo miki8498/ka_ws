@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="frankx_pick_place">
+
+	<executable package_path="dlo_flexbe_behaviors.frankx_pick_place_sm" class="frankx_pick_placeSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Thu Jul 27 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

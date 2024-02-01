@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="linear_interpolation">
+
+	<executable package_path="ur_move_flexbe_behaviors.linear_interpolation_sm" class="linear_interpolationSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Thu Jan 25 2024</date>
+	<description>
+		linear interpolation for movement
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period" default="10" label="period" hint="Sets the period">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+	</params>
+
+
+</behavior>

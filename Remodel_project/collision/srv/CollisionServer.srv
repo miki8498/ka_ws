@@ -1,0 +1,9 @@
+uint32 n_robots
+string ur_type
+InfoData[] joint_config
+InfoData[] joint_config_right
+InfoData[] joint_config_left
+float64[]  gripper_config
+------------------------
+int32 collision_index
+bool success

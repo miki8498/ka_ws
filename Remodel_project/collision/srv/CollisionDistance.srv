@@ -1,0 +1,8 @@
+InfoData[] joint_right
+InfoData[] joint_left
+float64[] gripper_config
+string ur_follower_type
+------------
+InfoData[] distance_env
+InfoData[] distance_robot
+bool[] collision # true if collision

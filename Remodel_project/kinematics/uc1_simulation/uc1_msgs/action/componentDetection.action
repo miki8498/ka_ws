@@ -1,0 +1,17 @@
+# Action for component detector AC
+
+geometry_msgs/Pose component_pose
+string component_label
+int8 direction 
+float32 y_filter
+bool wait_key
+
+---
+bool success
+geometry_msgs/Pose output_center
+geometry_msgs/TransformStamped output_transform
+float32 displacement_x
+float32 displacement_y
+sensor_msgs/Image[] output_images
+---
+string output 

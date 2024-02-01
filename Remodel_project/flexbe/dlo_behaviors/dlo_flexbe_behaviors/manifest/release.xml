@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Release">
+
+	<executable package_path="dlo_flexbe_behaviors.release_sm" class="ReleaseSM" />
+	<tagstring>xxx</tagstring>
+	<author>mk</author>
+	<date>Tue Jan 30 2024</date>
+	<description>
+		fe
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="linear_interpolation" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="delta_z" default="1" label="delta_z" hint="Sets the delta_z">
+			<min value="0.1" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+		<param type="numeric" name="period_over_place" default="10" label="period_over_place" hint="Sets the period_over_place">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+	</params>
+
+
+</behavior>

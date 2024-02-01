@@ -1,0 +1,14 @@
+geometry_msgs/Pose screw_pose
+geometry_msgs/Pose component_pose
+database_wires/connection_data_info connection
+geometry_msgs/Quaternion tool_orientation
+bool rotation
+string label   # to remvoe
+string pin     # to remove
+# Add connection information
+string direction #Ascending | Descending | Homing
+---
+bool success
+geometry_msgs/Pose output_pose
+---
+float64 current_time

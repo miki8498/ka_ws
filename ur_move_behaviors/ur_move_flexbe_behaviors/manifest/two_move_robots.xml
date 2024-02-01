@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="two_move_robots">
+
+	<executable package_path="ur_move_flexbe_behaviors.two_move_robots_sm" class="two_move_robotsSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Wed Jan 31 2024</date>
+	<description>
+		dfe
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Pick " />
+	<contains name="Release" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="period" default="1" label="period" hint="Sets the period">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="3" />
+		</param>
+
+		<param type="numeric" name="delta_z_over_table" default="0.01" label="delta_z_over_table" hint="Sets the delta_z_over_table">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period_over_pick" default="10" label="period_over_pick" hint="Sets the period_over_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="period_to_pick" default="10" label="period_to_pick" hint="Sets the period_to_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="numeric" name="delta_z_after_pick" default="0.01" label="delta_z_after_pick" hint="Sets the delta_z_after_pick">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="period_after_pick" default="10" label="period_after_pick" hint="Sets the period_after_pick">
+			<min value="0" />
+			<max value="15" />
+		</param>
+
+		<param type="boolean" name="close" default="False" label="close" hint="Sets the close" />
+
+		<param type="boolean" name="simulation" default="False" label="simulation" hint="Sets the simulation" />
+
+	</params>
+
+
+</behavior>

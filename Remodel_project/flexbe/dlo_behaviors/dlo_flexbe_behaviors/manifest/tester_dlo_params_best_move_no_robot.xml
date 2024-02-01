@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="tester_dlo_params_best_move_no_robot">
+
+	<executable package_path="dlo_flexbe_behaviors.tester_dlo_params_best_move_no_robot_sm" class="tester_dlo_params_best_move_no_robotSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Mon Jul 24 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

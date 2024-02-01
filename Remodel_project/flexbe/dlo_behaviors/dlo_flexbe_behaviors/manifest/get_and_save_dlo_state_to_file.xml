@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="get_and_save_dlo_state_to_file">
+
+	<executable package_path="dlo_flexbe_behaviors.get_and_save_dlo_state_to_file_sm" class="get_and_save_dlo_state_to_fileSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Thu Jul 27 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

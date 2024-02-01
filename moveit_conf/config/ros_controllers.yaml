@@ -1,0 +1,112 @@
+ur_right/arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - ur_right_shoulder_pan_joint
+    - ur_right_shoulder_lift_joint
+    - ur_right_elbow_joint
+    - ur_right_wrist_1_joint
+    - ur_right_wrist_2_joint
+    - ur_right_wrist_3_joint
+  gains:
+    ur_right_shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_wrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+ur_right/hand_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - ur_right_bl_to_leftFinger
+    - ur_right_leftFinger_to_rightFinger
+  gains:
+    ur_right_bl_to_leftFinger:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_right_leftFinger_to_rightFinger:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+ur_left/arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - ur_left_shoulder_pan_joint
+    - ur_left_shoulder_lift_joint
+    - ur_left_elbow_joint
+    - ur_left_wrist_1_joint
+    - ur_left_wrist_2_joint
+    - ur_left_wrist_3_joint
+  gains:
+    ur_left_shoulder_pan_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_shoulder_lift_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_elbow_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_wrist_1_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_wrist_2_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_wrist_3_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+ur_left/hand_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - ur_left_bl_to_leftFinger
+    - ur_left_leftFinger_to_rightFinger
+  gains:
+    ur_left_bl_to_leftFinger:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    ur_left_leftFinger_to_rightFinger:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

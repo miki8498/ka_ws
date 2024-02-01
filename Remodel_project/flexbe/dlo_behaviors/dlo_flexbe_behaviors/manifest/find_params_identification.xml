@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="find_params_identification">
+
+	<executable package_path="dlo_flexbe_behaviors.find_params_identification_sm" class="find_params_identificationSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Fri Jul 28 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

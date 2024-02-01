@@ -1,0 +1,5 @@
+geometry_msgs/PoseArray[] detected_points
+geometry_msgs/PoseArray visible_points
+---
+float32 displacement_x
+float32 displacement_y

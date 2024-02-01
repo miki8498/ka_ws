@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="eftggr">
+
+	<executable package_path="ur_move_flexbe_behaviors.eftggr_sm" class="eftggrSM" />
+	<tagstring></tagstring>
+	<author>mk</author>
+	<date>Mon Jan 29 2024</date>
+	<description>
+		ef
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

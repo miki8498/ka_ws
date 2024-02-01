@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="set_dlo_target_from_file">
+
+	<executable package_path="dlo_flexbe_behaviors.set_dlo_target_from_file_sm" class="set_dlo_target_from_fileSM" />
+	<tagstring>xxx</tagstring>
+	<author>xxx</author>
+	<date>Tue Aug 22 2023</date>
+	<description>
+		xxx
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

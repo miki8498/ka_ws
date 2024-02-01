@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Pick_and_place_arm">
+
+	<executable package_path="ur_move_flexbe_behaviors.pick_and_place_arm_sm" class="Pick_and_place_armSM" />
+	<tagstring>xxx</tagstring>
+	<author>mk</author>
+	<date>Thu Jan 25 2024</date>
+	<description>
+		pick and place movements coputation
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="linear_interpolation" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="priority" default="0" label="priority" hint="Sets the priority">
+			<min value="0" />
+			<max value="1" />
+		</param>
+
+		<param type="boolean" name="simulation" default="False" label="simulation" hint="Sets the simulation" />
+
+	</params>
+
+
+</behavior>

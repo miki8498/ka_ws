@@ -1,0 +1,6 @@
+int8 net_model #### NON USAREE!!!!! #####
+---
+bool success
+---
+float64 current_time
+uc1_msgs/holeArray holes 

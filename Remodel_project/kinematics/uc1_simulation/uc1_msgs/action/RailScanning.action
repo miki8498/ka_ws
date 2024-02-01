@@ -1,0 +1,12 @@
+geometry_msgs/Pose rail_start
+geometry_msgs/Pose[] components_poses
+geometry_msgs/Vector3[] components_dimensions
+float64[] components_height
+string[] components_label
+---
+string[] components_label
+geometry_msgs/Pose[] new_components_poses
+string[] result
+bool success
+---
+float64 current_time
